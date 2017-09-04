@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Belt Review - Exam1</title>
+    </head>
+    <body>
+        <div class="left">
+            <h1>Register</h1>
+            <form action="/register" method="post">
+                {% csrf_token%}
+            {% if messages %}
+                {% for message in messages %}
+                    <h4 style='color:red;'>{{ message }}</h4>
+                {% endfor %}
+            {% endif %}
+                <br>
+                <label for="name">Name:</label>
+                <input type="text" name="name">
+                <br><br>
+                <label for="username">Username:</label>
+                <input type="text" name="username">
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" name="email">
+                <br>
+                <label for="birthday">Birthday:</label>
+                <input type="date" name="bday">
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" name="password">
+                <p style="font-size : 8pt">password should be at least 8 characters</p>
+                <br>
+                <label for="conf_pwd">Confirm Password:</label>
+                <input type="password" name="conf_pwd">
+                <br><br>
+                <input type="submit" name="register" value="Register">
+
+            </form>
+        </div>
+        <div>
+            <h1>Login</h1>
+            <form action="/login" method="post">
+                {% csrf_token%}
+                {% if messages %}
+                    {% for message in messages %}
+                      <h4 style='color:red;'>{{ message }}</h4>
+                    {% endfor %}
+                {% endif %}
+                <label for="username">Username:</label>
+                <input type="text" name="username">
+                <br><br>
+                <label for="email">Email:</label>
+                <input type="email" name="email">
+                <br><br>
+                <label for="password">Password:</label>
+                <input type="password" name="password">
+                <br>
+                <input type="submit" name='login' value="Login">
+
+        </div>
+    </body>
+</html>

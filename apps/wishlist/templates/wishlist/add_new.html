@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Belt Review - Exam1</title>
+    </head>
+
+    <body>
+      {%   block content  %}
+        {% include "wishlist/header.html"  %}
+      {%  endblock  %}
+
+
+      {% if messages %}
+        {% for message in messages %}
+          {{ message }}
+        {% endfor %}
+      {% endif %}
+
+        <div class="left">
+            <h1>Add a new item</h1>
+            <form action="/add_new" method="post">
+                {% csrf_token%}
+                <label for="item_name">Item/Product Name:</label>
+                <input type="text" name="item_name">
+
+                <input type="submit" name="add_item" value="Add">
+
+            </form>
+        </div>
+
+    </body>
+</html>
